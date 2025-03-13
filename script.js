@@ -62,6 +62,7 @@ function init() {
   trackTitle.textContent = currentTrack.title;
   trackArtist.textContent = currentTrack.artist;
   renderPlaylist();
+  initMediaSession();
 }
 
 function renderPlaylist() {
@@ -104,6 +105,7 @@ function handleTrackSelect(track) {
   playPauseButton.classList.add("playing");
   renderPlaylist();
   updatePlayerUI();
+  initMediaSession();
 }
 
 function togglePlayPause() {
@@ -112,10 +114,12 @@ function togglePlayPause() {
     audioPlayer.play();
     playPauseButton.innerHTML = '<i class="fas fa-pause h-6 w-6"></i>';
     playPauseButton.classList.add("playing");
+    navigator.mediaSession.playbackState = "playing";
   } else {
     audioPlayer.pause();
     playPauseButton.innerHTML = '<i class="fas fa-play h-6 w-6"></i>';
     playPauseButton.classList.remove("playing");
+    navigator.mediaSession.playbackState = "paused";
   }
   updatePlayerUI();
 }
@@ -209,3 +213,32 @@ volumeSlider.oninput = (e) => {
 };
 
 document.addEventListener("DOMContentLoaded", init);
+
+function initMediaSession() {
+  if ("mediaSession" in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: currentTrack.title,
+      artist: currentTrack.artist,
+      album: "PureTune",
+      artwork: [
+        {
+          src: "assets/images/pure-tune-logo.png",
+          sizes: "512x512",
+          type: "image/jpeg",
+        },
+        {
+          src: "assets/images/pure-tune-logo.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
+    });
+
+    navigator.mediaSession.setActionHandler("play", () => togglePlayPause());
+    navigator.mediaSession.setActionHandler("pause", () => togglePlayPause());
+    navigator.mediaSession.setActionHandler("previoustrack", () =>
+      changeTrack(-1)
+    );
+    navigator.mediaSession.setActionHandler("nexttrack", () => changeTrack(1));
+  }
+}
