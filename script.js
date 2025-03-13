@@ -2,24 +2,31 @@
 const samplePlaylist = [
   {
     id: 1,
-    title: "Beautiful Recitation",
-    artist: "Sheikh Mohammad",
-    duration: "3:45",
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    title: "Lama Tkooni",
+    artist: "siilawy",
+    duration: "2:55",
+    url: "https://raw.githubusercontent.com/jooexploit/PureTune/refs/heads/main/siilawy%20-%20Lama%20Tkooni_vocals_no_silence.mp3",
   },
   {
     id: 2,
-    title: "Morning Nasheeds",
-    artist: "Islamic Audio",
-    duration: "4:20",
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    title: "Ansaki",
+    artist: "Tommy Gun",
+    duration: "3:10",
+    url: "https://raw.githubusercontent.com/jooexploit/PureTune/refs/heads/main/Tommy%20Gun%20-%20Ansaki_vocals_no_silence.mp3",
   },
   {
     id: 3,
-    title: "Evening Dhikr",
-    artist: "Peace Studio",
-    duration: "5:15",
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    title: "Ser Alsada",
+    artist: "Hussain Aljassmi",
+    duration: "2:34",
+    url: "https://raw.githubusercontent.com/jooexploit/PureTune/refs/heads/main/Hussain%20Aljassmi%20-%20Ser%20Alsada%20(%20Mountain%20View)_vocals_no_silence.mp3",
+  },
+  {
+    id: 4,
+    title: "Yom Gdeed",
+    artist: "Amir Eid",
+    duration: "2:34",
+    url: "https://raw.githubusercontent.com/jooexploit/PureTune/refs/heads/main/Amir%20Eid%20-%20يوم%20جديد_PureTune_no_silence.mp3",
   },
 ];
 
